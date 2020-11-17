@@ -1,2 +1,17 @@
 <h1>Courses#index</h1>
 
+<% @courses.each do |course| %>
+  <div class="card-course">
+    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <div class="card-course-infos">
+      <div>
+        <h2><%= course.title %></h2>
+        <p><%= course.description %></p>
+      </div>
+      <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "New Course", new_course_path %>
