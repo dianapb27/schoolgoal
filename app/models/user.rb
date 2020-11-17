@@ -3,7 +3,8 @@ class User < ApplicationRecord
   has_many :appointments, dependent: :destroy
   has_many :courses, through: :appointments
 
-  validates :first_name, :last_name, presence: true
+  validates :last_name, presence: true
+  validates :first_name, presence: true
   # has_one_attached :profile_photo
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

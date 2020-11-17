@@ -1,15 +1,16 @@
 class CoursesController < ApplicationController
   def index
+    @courses = policy_scope(Course)
   end
 
   def new
-    authorize @course
+    @course = Course.new
   end
 
   def create
-    authorize @course
   end
 
-  def 
+  def edit
+  end
 
 end
