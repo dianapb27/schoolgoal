@@ -10,6 +10,18 @@ class CoursesController < ApplicationController
 
   def new
     @course = Course.new
+    @category = [
+      'Spanish',
+      'German',
+      'Chinese',
+      'Japanese',
+      'English',
+      'Math',
+      'Science',
+      'Art',
+      'Music',
+      'History'
+    ]
   end
 
   def create
