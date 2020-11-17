@@ -1,6 +1,11 @@
 class CoursesController < ApplicationController
   def index
-    @courses = policy_scope(Course)
+    # @courses = policy_scope(Course)
+    @courses = Course.all
+  end
+
+  def show
+    @course = Course.find(params[:id])
   end
 
   def new
@@ -12,5 +17,4 @@ class CoursesController < ApplicationController
 
   def edit
   end
-
 end

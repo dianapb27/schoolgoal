@@ -25,6 +25,8 @@ gem 'devise'
 
 gem 'pundit'
 
+gem 'faker'
+
 
 
 gem 'autoprefixer-rails'
