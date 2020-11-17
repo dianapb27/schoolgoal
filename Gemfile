@@ -25,10 +25,9 @@ gem 'devise'
 
 gem 'pundit'
 
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'cloudinary', '~> 1.16.0'
 
-
-
+gem 'faker'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'

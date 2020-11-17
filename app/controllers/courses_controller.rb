@@ -8,6 +8,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    @course = Course.find(params[:id])
+  end
+
   def new
     @course = Course.new
     @category = ['Spanish', 'German', 'Chinese', 'Japanese', 'English', 'Math', 'Science', 'Art', 'Music', 'History']
@@ -29,7 +33,8 @@ class CoursesController < ApplicationController
   def edit
   end
 
-  private 
+  private
+  
   def course_params
     params.require(:course).permit(:title, :category, :description, :price_per_hour)
   end
