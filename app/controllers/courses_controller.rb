@@ -8,6 +8,10 @@ class CoursesController < ApplicationController
     end
   end
 
+  def show
+    @course = Course.find(params[:id])
+  end
+
   def new
     @course = Course.new
   end
@@ -17,5 +21,4 @@ class CoursesController < ApplicationController
 
   def edit
   end
-
 end

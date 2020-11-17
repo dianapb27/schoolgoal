@@ -25,9 +25,7 @@ gem 'devise'
 
 gem 'pundit'
 
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
-
-
+gem 'faker'
 
 
 gem 'autoprefixer-rails'
