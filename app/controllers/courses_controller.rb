@@ -1,6 +1,11 @@
 class CoursesController < ApplicationController
   def index
-    @courses = policy_scope(Course)
+    # @courses = policy_scope(Course)
+    if params[:category].present?
+      @courses = Course.where(category: params[:category])
+    else
+      @courses = Course.all
+    end
   end
 
   def new
