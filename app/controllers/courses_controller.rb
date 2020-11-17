@@ -3,8 +3,13 @@ class CoursesController < ApplicationController
   end
 
   def new
+    authorize @course
   end
 
   def create
+    authorize @course
   end
+
+  def 
+
 end

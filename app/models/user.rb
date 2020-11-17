@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_many :owned_courses, foreign_key: :teacher_id, class_name: "Course", dependent: :destroy
-  has_many :sessions, dependent: :destroy
-  has_many :courses, through: :sessions
+  has_many :appointments, dependent: :destroy
+  has_many :courses, through: :appointments
 
   validates :first_name, :last_name, presence: true
   # has_one_attached :profile_photo
