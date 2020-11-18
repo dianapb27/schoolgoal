@@ -1,1 +1,20 @@
-<h1> My Profile</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-3">
+      <h2 class="text-center">My Profile</h2>
+      <div class="profile">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt="<%= @user.first_name %>" class="profile-pic"> 
+        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+        <h6>Email: <%= @user.email %></h6>
+      </div>
+    </div>
+    <div class="col-9 upcoming-appointments">
+      <h2>My Upcoming Teaching Sessions</h2>
+      <ul class="list-group list-group-flush">
+        <% @user.appointments.each do |appointment| %>
+        <li class="list-group-item">Appointment with: <%= appointment.student.first_name %> <%= appointment.student.last_name %> on <%= appointment.start_time %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
