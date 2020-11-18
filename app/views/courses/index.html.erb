@@ -1,18 +1,51 @@
-<h1>Courses#index</h1>
-
-<% @courses.each do |course| %>
-  <div class="card-course">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-    <div class="card-course-infos">
-      <div>
-        <h2><%= course.title %></h2>
-        <p><%= course.description %></p>
-        <%= link_to "Check out this course", course_path(course) %>
-      </div>
-      <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
-      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-12">
+      <h1>Availale Courses</h1>
     </div>
   </div>
-<% end %>
 
-<%= link_to "New Course", new_course_path %>
+  <div class="row">
+    <div class="col">
+      <% if @query %>
+        <p>You searched for <strong><%= @query %></strong>. We found <%= @courses.count %> courses out of our <%= course.count %> on our website.</p>
+      <% else %>
+        <p>There are <%= @courses.count %> courses available</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @courses.each do |course| %>
+      <div class="col-4">
+        <div class="course-card" style="background-image: min-height: 100%; min-width:
+       100%; background-position: center; background-size: cover;">
+       <img class="card-img-top" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" alt="Card image cap">
+          <div class="course-card-image" style=""></div>
+          <div class="course-card-content">
+            <div class="course-card-title">
+              <h4><%= course.title %></h4>
+            </div>
+            <p><%= course.description %></p>
+            <%= link_to "Check out this course", course_path(course) %>
+            <div class="flex">
+              <div class="flex ml-3">
+                 <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
+              </div>
+            </div>
+          </div>
+          <div class="course-card-actions">
+            <%= link_to "New Course", new_course_path %>
+            <%= link_to 'Edit', edit_course_path(course), class: 'ml-3 text-warning' %>
+            <%= link_to "Remove", course_path(course),
+                method: :delete,
+                data: { confirm: "Are you sure?" },
+                class: 'ml-3 text-danger'
+            %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
