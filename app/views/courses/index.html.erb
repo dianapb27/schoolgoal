@@ -7,6 +7,7 @@
       <div>
         <h2><%= course.title %></h2>
         <p><%= course.description %></p>
+        <%= link_to "Check out this course", course_path(course) %>
       </div>
       <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
       <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
