@@ -8,7 +8,6 @@
         <p><%= @course.description %></p>
       </div>
     </div>
-
     <div class="col-4">
       <div class="card">
         <div class="card-body">
@@ -22,13 +21,9 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><i
               class="material-icons mr-2">Teacher:</i><span><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></span></li>
-          <li class="list-group-item"><i class="material-icons mr-2">Price per hour</i> $ <%= @course.price_per_hour %>
+          <li class="list-group-item"><i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
           </li>
         </ul>
       </div>
     </div>
   </div>
-
-
-
-  <!-- f.input :start_date, as: :date, html5: true -->

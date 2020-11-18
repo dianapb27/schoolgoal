@@ -3,6 +3,7 @@ class AppointmentsController < ApplicationController
     @course = Course.find(params[:course_id])
     @appointment = Appointment.new
   end
+
   def create
     @appointment = Appointment.new(course_params)
     @course = Course.find(params[:course_id])
@@ -17,4 +18,11 @@ class AppointmentsController < ApplicationController
       redirect_to @course
     end
   end
+  
+  private
+
+  def course_params
+    params.require(:appointment).permit(:start_time, :end_time)
+  end
+  
 end
