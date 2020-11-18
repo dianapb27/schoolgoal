@@ -1,36 +1,29 @@
- <div class="container margin-top-negative">
+<div class="container mt-4 px-5">
   <div class="row">
-    <div class="col-8">
+    <div class="col-8 d-flex flex-column align-items-center">
       <div class="course-show-card">
-        <h1><%= @course.title %></h1>
-        <p class="course-show-address"><%= @course.category %></p>
-      </div>
-      <div class="course-show-card">
+        <h1>Welcome to <%= @course.title %> <%= @course.category %> class!</h1>
+        <p class="course-show-address">Course Category: <%= @course.category %></p>
         <h3>A bit more about this course...</h3>
         <p><%= @course.description %></p>
       </div>
     </div>
-
     <div class="col-4">
-      <div class="course-show-card mb-3">
-        <h4><strong>Book this course!</strong></h4>
-        <%= simple_form_for [ @course, @appointment ] do |f| %>
-          <%= f.input :start_time %>
-          <%= f.input :end_time %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Book this course!</h5>
+          <%= simple_form_for [ @course, @appointment ] do |f| %>
+          <%= f.input :start_time, as: :date, html5: true %>
+          <%= f.input :end_time, as: :date, html5: true %>
           <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
-        <% end %>
-        
-      </div>
-      <div class="course-show-card">
-        <h3>Details</h3>
-        <div class="flex">
-          <div class="flex">
-            <i class="material-icons mr-2">Teacher: <%= @course.teacher.first_name %> <%= @course.teacher.last_name %></i><span><%= @teacher_id %></span>
-          </div>
-          <div class="flex ml-3">
-            <i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
-          </div>
+          <% end %>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><i
+              class="material-icons mr-2">Teacher:</i><span><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></span></li>
+          <li class="list-group-item"><i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

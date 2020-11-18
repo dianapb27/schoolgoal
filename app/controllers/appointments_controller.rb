@@ -18,10 +18,11 @@ class AppointmentsController < ApplicationController
       redirect_to @course
     end
   end
-
+  
   private
 
   def course_params
     params.require(:appointment).permit(:start_time, :end_time)
   end
+  
 end
