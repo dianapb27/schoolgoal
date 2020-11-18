@@ -6,6 +6,7 @@
         <p class="course-show-address">Course Category: <%= @course.category %></p>
         <h3>A bit more about this course...</h3>
         <p><%= @course.description %></p>
+        <%= link_to "Go Back", courses_path, class: "btn btn-primary" %>
       </div>
     </div>
     <div class="col-4">
