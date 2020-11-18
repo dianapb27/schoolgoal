@@ -12,10 +12,15 @@
     </div>
 
     <div class="col-4">
-      <div class="course-show-card">
-        <h5>Book this course!</h5>
+      <div class="course-show-card mb-3">
+        <h4><strong>Book this course!</strong></h4>
+        <%= simple_form_for [ @course, @appointment ] do |f| %>
+          <%= f.input :start_time %>
+          <%= f.input :end_time %>
+          <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+        <% end %>
 
-        <form action="">
+        <%# <form action="">
           <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">From:</span>
             <input type="text" class="form-control" placeholder="12/10/2021" aria-label="Username" aria-describedby="basic-addon1">
@@ -25,16 +30,16 @@
             <input type="text" class="form-control" placeholder="18/10/2021" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
-        </form>
+        </form> %>
       </div>
       <div class="course-show-card">
         <h3>Details</h3>
         <div class="flex">
           <div class="flex">
-            <i class="material-icons mr-2">Teacher:</i><span><%= @teacher_id %></span>
+            <i class="material-icons mr-2">Teacher: <%= @course.teacher.first_name %> <%= @course.teacher.last_name %></i><span><%= @teacher_id %></span>
           </div>
           <div class="flex ml-3">
-            <i class="material-icons mr-2">Price per hour</i> <%= @course.price_per_hour %>
+            <i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
           </div>
         </div>
       </div>
