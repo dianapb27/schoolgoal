@@ -10,6 +10,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @appointment = Appointment.new
   end
 
   def new

@@ -28,7 +28,7 @@ puts "Creating seeds..."
   3.times do
     Course.create!(
       teacher: user,
-      title: Faker::TvShows::RickAndMorty.character + "'s class",
+      title: Faker::TvShows::RickAndMorty.character + "'s",
       description: "This class is " + Faker::TvShows::DrWho.catch_phrase,
       category: categories.sample,
       price_per_hour: Faker::Number.between(from: 1, to: 10)
