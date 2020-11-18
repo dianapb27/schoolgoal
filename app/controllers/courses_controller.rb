@@ -15,14 +15,14 @@ class CoursesController < ApplicationController
   def new
     @course = Course.new
     @category = ['Spanish', 'German', 'Chinese', 'Japanese', 'English', 'Math', 'Science', 'Art', 'Music', 'History']
-    authorize @course
+    # authorize @course
   end
 
   def create
     @course = Course.new(course_params)
     @user = current_user
     @course.teacher = @user
-    authorize @course
+    # authorize @course
     if @course.save
       redirect_to course_path(@course)
     else
