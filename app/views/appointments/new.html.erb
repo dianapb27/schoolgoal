@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Book this course</h1>
+  <%= simple_form_for [ @course, @appointment ] do |f| %>
+  <%= f.input :start_time %>
+  <%= f.input :end_time%>
+  <%= f.button :submit, class: "btn btn-outline-success" %>
+  <% end %>
+</div>
