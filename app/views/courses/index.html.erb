@@ -19,24 +19,23 @@
     <% @courses.each do |course| %>
       <div class="col-4">
         <div class="course-card" style="background-image: min-height: 100%; min-width:
-       100%; background-position: center; background-size: cover;">
+       100%; background-position: center; background-size: cover; box-shadow: 5px 5px 4px #ccc;">
        <img class="card-img-top" src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80" alt="Card image cap">
           <div class="course-card-image" style=""></div>
           <div class="course-card-content">
             <div class="course-card-title">
-              <h4><%= course.title %></h4>
+              <h4 style="margin-top: 8px"><%= course.title %></h4>
             </div>
-            <p><%= course.description %></p>
+            <p style="height: 20vh;"><%= course.description %></p>
             <%= link_to "Check out this course", course_path(course) %>
             <div class="flex">
-              <div class="flex ml-3">
+              <div class="flex">
                  <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
               </div>
             </div>
           </div>
           <div class="course-card-actions">
-            <%= link_to "New Course", new_course_path %>
             <%= link_to 'Edit', edit_course_path(course), class: 'ml-3 text-warning' %>
             <%= link_to "Remove", course_path(course),
                 method: :delete,
