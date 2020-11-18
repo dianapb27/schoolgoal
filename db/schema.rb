@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 2020_11_17_214116) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.date "start_time"
-    t.date "end_time"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.bigint "student_id", null: false
     t.bigint "course_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_214116) do
     t.text "description"
     t.bigint "teacher_id", null: false
     t.string "category"
-    t.integer "price_per_hour"
+    t.float "price_per_hour"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["teacher_id"], name: "index_courses_on_teacher_id"
