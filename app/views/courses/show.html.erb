@@ -25,6 +25,7 @@
             <input type="text" class="form-control" placeholder="18/10/2021" aria-label="Username" aria-describedby="basic-addon1">
           </div>
           <input type="submit" value="Book" class="btn btn-success mt-2" style="width: 100%">
+          <%= link_to "Delete #{@course.title}", course_path(@course), method: :delete, data: { confirm: "Just making sure...?"}, class: "btn btn-danger mt-2", style: "width: 100%"  %>
         </form>
       </div>
       <div class="course-show-card">
@@ -34,7 +35,7 @@
             <i class="material-icons mr-2">Teacher:</i><span><%= @teacher_id %></span>
           </div>
           <div class="flex ml-3">
-            <i class="material-icons mr-2">Price per hour</i> <%= @course.price_per_hour %>
+            <i class="material-icons mr-2">Price per hour</i> $ <%= @course.price_per_hour %>
           </div>
         </div>
       </div>
