@@ -115,7 +115,7 @@ User.create!([{
     },
     {
       teacher: User.last,
-      title:  "Daniel's Philosiphy Course",
+      title:  "Daniel's Philosophy Course",
       description: "Learn what the meaning of life is with this course.",
       category: "Science",
       price_per_hour: rand(5..30)
