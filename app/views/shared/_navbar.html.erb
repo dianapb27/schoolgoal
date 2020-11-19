@@ -9,6 +9,14 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= form_tag courses_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control mr-sm-2",
+          placeholder: "Search for a course"
+        %>
+    <!-- <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %> -->
+    <% end %>
     <ul class="navbar-nav mr-auto pr-5">
       <% if user_signed_in? %>
       <li class="nav-item">
@@ -36,15 +44,7 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form> -->
-    
-    <%= form_tag courses_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
-    <%= text_field_tag :query,
-          params[:query],
-          class: "form-control mr-sm-2",
-          placeholder: "Find a course"
-        %>
-    <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %>
-    <% end %>
+  
   </div>
 </div>
 
