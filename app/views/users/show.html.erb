@@ -3,7 +3,9 @@
     <div class="col-3">
       <h2 class="text-center">My Profile</h2>
       <div class="profile">
-        <%= cl_image_tag @user.profile_photo.key, class: "profile-pic" %>
+        <% if @user.profile_photo.attached?  %>
+          <%= cl_image_tag @user.profile_photo.key, class: "profile-pic" %>
+        <% end %>
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
         <h6>Email: <%= @user.email %></h6>
       </div>
