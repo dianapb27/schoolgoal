@@ -29,6 +29,8 @@ gem 'cloudinary', '~> 1.16.0'
 
 gem 'faker'
 
+gem 'pg_search'
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
