@@ -1,12 +1,13 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
-    # @courses = policy_scope(Course)
-    if params[:category].present?
-      @courses = Course.where(category: params[:category])
-    else
-      @courses = Course.all
-    end
+
+    if params[:query].present?
+      @courses = Course.search_by_title_and_description_and_category(params[:query])
+   else
+     @courses = Course.all
+   end
+   
   end
 
   def show

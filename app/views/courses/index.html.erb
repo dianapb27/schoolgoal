@@ -28,7 +28,7 @@
           <div class="course-card-image" style=""></div>
           <div class="course-card-content">
             <div class="course-card-title">
-              <h4 style="margin-top: 8px"><%= course.title %></h4>
+              <h4 style="margin-top: 8px"><%= course.title %> <%= course.category %> course</h4>
             </div>
             <p style="height: 10vh;"><%= course.description %></p>
             <%= link_to "Check out this course", course_path(course) %>

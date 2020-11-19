@@ -1,14 +1,20 @@
 <div class="navbar navbar-expand-sm navbar-light bg-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-  <p class="pl-5">schoolgoal
-    <i class="fas fa-book-reader"></i>
-  </p>
+  <%= link_to "/", class: "navbar-brand pb-0 mb-0 pl-5 ml-5" do %>
+  schoolgoal <i class="fas fa-book-reader"></i>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <%= form_tag courses_path, method: :get, class: "form-inline my-2 my-lg-0" do %>
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control search-form mr-sm-2",
+          placeholder: "Search for a course"
+        %>
+    <!-- <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %> -->
+    <% end %>
     <ul class="navbar-nav mr-auto pr-5">
       <% if user_signed_in? %>
       <li class="nav-item">
@@ -32,5 +38,12 @@
       </li>
       <% end %>
     </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  
   </div>
 </div>
+
+
