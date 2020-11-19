@@ -1,5 +1,7 @@
 <div class="container mt-4 px-5">
-  <%= cl_image_tag @course.cover_photo.key %>
+  <% if @course.cover_photo.attached? %>
+     <%= cl_image_tag @course.cover_photo.key %>
+  <% end %>
   <div class="row">
     <div class="col-8 d-flex flex-column align-items-center">
       <div class="course-show-card">
@@ -15,9 +17,11 @@
         <div class="card-body">
           <h5 class="card-title">Book this course!</h5>
           <%= simple_form_for [ @course, @appointment ] do |f| %>
-          <%= f.input :start_time, as: :date, html5: true %>
-          <%= f.input :end_time, as: :date, html5: true %>
-          <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+            <%= f.input :start_time, as: :date, html5: true %>
+            <%= f.input :end_time, as: :date, html5: true %>
+            <% if current_user != @course.teacher %>
+              <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+            <% end %>
           <% end %>
         </div>
         <ul class="list-group list-group-flush">
