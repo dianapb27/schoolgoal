@@ -17,9 +17,11 @@
         <div class="card-body">
           <h5 class="card-title">Book this course!</h5>
           <%= simple_form_for [ @course, @appointment ] do |f| %>
-          <%= f.input :start_time, as: :date, html5: true %>
-          <%= f.input :end_time, as: :date, html5: true %>
-          <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+            <%= f.input :start_time, as: :date, html5: true %>
+            <%= f.input :end_time, as: :date, html5: true %>
+            <% if current_user != @course.teacher %>
+              <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+            <% end %>
           <% end %>
         </div>
         <ul class="list-group list-group-flush">
