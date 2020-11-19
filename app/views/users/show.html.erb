@@ -5,6 +5,8 @@
       <div class="profile">
         <% if @user.profile_photo.attached?  %>
           <%= cl_image_tag @user.profile_photo.key, class: "profile-pic" %>
+        <% else %>
+          <%= image_tag "user-profile-default.png", class: "profile-pic" %>
         <% end %>
         <h2><%= @user.first_name %> <%= @user.last_name %></h2>
         <h6>Email: <%= @user.email %></h6>
@@ -23,6 +25,8 @@
                 </div>
               <% end %>
             </div>
+          <% else %>
+            <h4 class="my-5">You don't have any published courses, <%= link_to "create one now!", new_course_path %></h4 class="my-5">
           <% end %>
         </div>
       </div>
@@ -30,21 +34,21 @@
         <div class="col-12">
           <% if not @user.owned_courses.empty? %>
             <h2>My Upcoming Teaching Sessions</h2>
-              <% @user.owned_courses.each do |owned_course| %>
-                <div class="card-product">
-                  <%= cl_image_tag owned_course.cover_photo.key %>
-                  <div class="card-product-infos">
-                    <h2><%= owned_course.title %></h2>
-                    <h6><%= owned_course.category %></h4>
-                    <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
-                      <p>
-                        <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
-                        <strong>On:</strong> <%= tsession.start_time %>
-                      </p>
-                    <% end %>
-                  </div>
+            <% @user.owned_courses.each do |owned_course| %>
+              <div class="card-product">
+                <%= cl_image_tag owned_course.cover_photo.key %>
+                <div class="card-product-infos">
+                  <h2><%= owned_course.title %></h2>
+                  <h6><%= owned_course.category %></h4>
+                  <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
+                    <p>
+                      <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
+                      <strong>On:</strong> <%= tsession.start_time %>
+                    </p>
+                  <% end %>
                 </div>
-              <% end %>
+              </div>
+            <% end %>
           <% end %>
         </div>
       </div>
@@ -52,15 +56,17 @@
         <div class="col-12">
           <% if not @user.appointments.empty? %>
             <h2>My Upcoming Studying Sessions</h2>
-              <% @user.appointments.order(start_time: :asc).each do |appointment| %>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <strong>Course:</strong> <%= appointment.course.title %> - <%= appointment.course.category %>. 
-                    <strong>Teacher:</strong> <%= appointment.course.teacher.first_name %> <%= appointment.course.teacher.last_name %>
-                    <strong>On:</strong> <%= appointment.start_time %>
-                  </li>
-                </ul>
-              <% end %>
+            <% @user.appointments.order(start_time: :asc).each do |appointment| %>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <strong>Course:</strong> <%= appointment.course.title %> - <%= appointment.course.category %>. 
+                  <strong>Teacher:</strong> <%= appointment.course.teacher.first_name %> <%= appointment.course.teacher.last_name %>
+                  <strong>On:</strong> <%= appointment.start_time %>
+                </li>
+              </ul>
+            <% end %>
+          <% else %>
+            <h4 class="my-5">You don't have any upcoming learning sessions, <%= link_to "browse our courses now!", courses_path %></h4 class="mb-5">
           <% end %>
         </div>
       </div>
