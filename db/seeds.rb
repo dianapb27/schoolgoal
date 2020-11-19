@@ -14,6 +14,7 @@ categories = %w[English Spanish French German Chinese Japanese Arabic History Ma
 
 puts "Deleting seeds"
 User.destroy_all
+Appointment.destroy_all
 Course.destroy_all
 
 puts "Creating seeds..."
