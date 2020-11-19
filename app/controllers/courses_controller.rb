@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
   def index
     # @courses = policy_scope(Course)
     if params[:category].present?
@@ -9,21 +10,21 @@ class CoursesController < ApplicationController
   end
 
   def show
-    @course = Course.find(params[:id])
     @appointment = Appointment.new
+    authorize @course
   end
 
   def new
     @course = Course.new
     @category = ['Spanish', 'German', 'Chinese', 'Japanese', 'English', 'Math', 'Science', 'Art', 'Music', 'History']
-    # authorize @course
+    authorize @course
   end
 
   def create
     @course = Course.new(course_params)
     @user = current_user
     @course.teacher = @user
-    # authorize @course
+    authorize @course
     if @course.save
       redirect_to course_path(@course)
     else
@@ -32,17 +33,14 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:id])
   end
 
   def update
-    @course = Course.find(params[:id])
     @course.update(course_params)
     redirect_to course_path(@course)
   end
 
   def destroy
-    @course = Course.find(params[:id])
     @course.destroy
     redirect_to courses_path 
   end
@@ -51,5 +49,10 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:title, :category, :description, :price_per_hour)
+  end
+
+  def set_course
+    @course = Course.find(params[:id])
+    authorize @course
   end
 end
