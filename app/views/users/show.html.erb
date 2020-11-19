@@ -11,12 +11,59 @@
       </div>
     </div>
     <div class="col-9 upcoming-appointments">
-      <h2>My Upcoming Teaching Sessions</h2>
-      <ul class="list-group list-group-flush">
-        <% @user.appointments.each do |appointment| %>
-        <li class="list-group-item">Appointment with: <%= appointment.student.first_name %> <%= appointment.student.last_name %> on <%= appointment.start_time %></li>
-        <% end %>
-      </ul>
+      <div class="row">
+        <div class="col-12">
+          <% if not @user.owned_courses.empty? %>
+            <h2>My Published Courses</h2>
+            <div class="cards">
+              <% @user.owned_courses.each do |owned_course| %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path owned_course.cover_photo.key %>')">
+                  <%= owned_course.title %>
+                  <p class="course-category"><%= owned_course.category %></p>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <% if not @user.owned_courses.empty? %>
+            <h2>My Upcoming Teaching Sessions</h2>
+              <% @user.owned_courses.each do |owned_course| %>
+                <div class="card-product">
+                  <%= cl_image_tag owned_course.cover_photo.key %>
+                  <div class="card-product-infos">
+                    <h2><%= owned_course.title %></h2>
+                    <h6><%= owned_course.category %></h4>
+                    <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
+                      <p>
+                        <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
+                        <strong>On:</strong> <%= tsession.start_time %>
+                      </p>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <% if not @user.appointments.empty? %>
+            <h2>My Upcoming Studying Sessions</h2>
+              <% @user.appointments.order(start_time: :asc).each do |appointment| %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <strong>Course:</strong> <%= appointment.course.title %> - <%= appointment.course.category %>. 
+                    <strong>Teacher:</strong> <%= appointment.course.teacher.first_name %> <%= appointment.course.teacher.last_name %>
+                    <strong>On:</strong> <%= appointment.start_time %>
+                  </li>
+                </ul>
+              <% end %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
