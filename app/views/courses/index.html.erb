@@ -31,7 +31,11 @@
             <div class="flex">
               <div class="flex">
                 <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
-                <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-course-user avatar-bordered" />
+                <% if course.teacher.profile_photo.attached? %>
+                  <%= cl_image_tag course.teacher.profile_photo.key, class: "card-course-user avatar-bordered" %>
+                <% else %>
+                  <%= image_tag "user-profile-default.png", class: "card-course-user avatar-bordered" %>
+                <% end %>
               </div>
             </div>
           </div>
