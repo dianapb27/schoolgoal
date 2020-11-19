@@ -1,5 +1,7 @@
 <div class="container mt-4 px-5">
-  <%= cl_image_tag @course.cover_photo.key %>
+  <% if @course.cover_photo.attached? %>
+    <%= cl_image_tag @course.cover_photo.key %>
+  <% end %>
   <div class="row">
     <div class="col-8 d-flex flex-column align-items-center">
       <div class="course-show-card">
@@ -21,8 +23,7 @@
           <% end %>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i
-              class="material-icons mr-2">Teacher:</i><span><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></span></li>
+          <li class="list-group-item"><i class="material-icons mr-2">Teacher:</i><span><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></span></li>
           <li class="list-group-item"><i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
           </li>
         </ul>
