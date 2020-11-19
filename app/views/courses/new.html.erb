@@ -6,6 +6,7 @@
   <%= f.input :category, collection: @category %>
   <%= f.input :description, as: :text %>
   <%= f.input :price_per_hour, input_html: { min: '0', step: '1' } %>
+  <%= f.input :cover_photo, as: :file %>
   <%= f.button :submit %>
   <% end %>
 </div>
