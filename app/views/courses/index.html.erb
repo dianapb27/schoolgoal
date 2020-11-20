@@ -45,13 +45,13 @@
             </div>
             <div class="col-12 col-lg-8 d-flex flex-sm-column flex-md-row pt-sm-2 pt-lg-0 justify-content-between justify-content-lg-end">
               <% if policy(course).edit? %>
-              <%= link_to 'Edit', edit_course_path(course), class: 'pr-lg-5 text-warning' %>
+              <%= link_to 'Edit', edit_course_path(course), class: 'mr-lg-1 btn btn-custom' %>
               <% end %>
               <% if policy(course).destroy? %>
               <%= link_to "Remove", course_path(course),
                         method: :delete,
                         data: { confirm: "Are you sure you want to delete this course?" },
-                        class: 'text-danger'
+                        class: 'btn btn-custom'
                       %>
               <% end %>
             </div>
