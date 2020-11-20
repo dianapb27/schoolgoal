@@ -3,6 +3,37 @@
   width: 50px;
 }
 
-.col-4 .card {
-  width: 30vw;;
+.card {
+  box-shadow: 0 0 10px gray;
+
+  .card-title {
+    font-weight: bolder;
+  }
+}
+
+.cover-photo {
+  width: 100vw;
+  height: 70vh;
+  object-fit: cover;
+  object-position: center;
+}
+
+.course-intro {
+  box-shadow: 0 0 10px gray;
+  padding: 10px;
+  background-color: white;
+}
+
+.course-details {
+  box-shadow: 0 0 10px gray;
+  background-color: white;
+  margin-top: 30px;
+}
+
+.course-content .row {
+  margin: 0;
+}
+
+.space {
+  width: 15px;
 }

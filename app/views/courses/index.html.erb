@@ -8,9 +8,10 @@
   <div class="row">
     <div class="col">
       <% if @query %>
-        <p>You searched for <strong><%= @query %></strong>. We found <%= @courses.count %> courses out of our <%= course.count %> on our website.</p>
+      <p>You searched for <strong><%= @query %></strong>. We found <%= @courses.count %> courses out of our
+        <%= course.count %> on our website.</p>
       <% else %>
-        <p>There are <%= @courses.count %> courses available</p>
+      <p>There are <%= @courses.count %> courses available</p>
       <% end %>
     </div>
   </div>
@@ -43,20 +44,38 @@
               </div>
             </div>
           </div>
-          <div class="course-card-actions">
-            <% if policy(course).edit? %>
-              <%= link_to 'Edit', edit_course_path(course), class: 'ml-3 text-warning' %>
-            <% end %>
-            <% if policy(course).destroy? %>
+
+
+          <div class="row pt-3 d-sm-flex flex-lg-row">
+          
+            <div class="col-12 col-lg-4">
+              $<%= course.price_per_hour %>
+            </div>
+            <div class="col-12 col-lg-8 d-flex flex-sm-column flex-md-row pt-sm-2 pt-lg-0 justify-content-between justify-content-lg-end">
+              <% if policy(course).edit? %>
+              <%= link_to 'Edit', edit_course_path(course), class: 'mr-lg-1 btn btn-custom' %>
+              <% end %>
+              <% if policy(course).destroy? %>
               <%= link_to "Remove", course_path(course),
-                method: :delete,
-                data: { confirm: "Are you sure you want to delete this course?" },
-                class: 'ml-3 text-danger'
-              %>
-            <% end %>
+                        method: :delete,
+                        data: { confirm: "Are you sure you want to delete this course?" },
+                        class: 'btn btn-custom'
+                      %>
+              <% end %>
+            </div>
+            <!-- <% if course.teacher.profile_photo.attached? %>
+                    <%= cl_image_tag course.teacher.profile_photo.key, class: "card-course-user avatar-bordered" %>
+                  <% else %>
+                    <%= image_tag "user-profile-default.png", class: "card-course-user avatar-bordered" %>
+                  <% end %> -->
+
+
           </div>
+
         </div>
       </div>
+    </div>
     <% end %>
   </div>
 </div>
+

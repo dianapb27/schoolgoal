@@ -75,7 +75,7 @@ User.create!([{
       teacher: User.fourth,
       title:  "Music Course",
       description: "For students of all ages who want to learn how to read music notes and apply that knowledge to using their instruments.",
-      category: "Science",
+      category: "Music",
       price_per_hour: rand(5..30)
     },
     {
@@ -96,7 +96,7 @@ User.create!([{
       teacher: User.second,
       title:  "Arabic Course",
       description: "Want to learn Arabic? Let me teach you.",
-      category: "Japanese",
+      category: "Arabic",
       price_per_hour: rand(5..30)
     },
     {
@@ -117,7 +117,7 @@ User.create!([{
       teacher: User.last,
       title:  "Philosophy Course",
       description: "Learn what the meaning of life is with this course.",
-      category: "Science",
+      category: "Art",
       price_per_hour: rand(5..30)
     }])
 
