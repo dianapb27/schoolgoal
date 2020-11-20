@@ -1,9 +1,10 @@
-<div class="container">
-  <%= simple_form_for @course do |f| %>
+<div class="container font-custom">
+<h2 style="background: none" class="pb-3 ml-0 font-custom">Update your course</h2>
+  <%= simple_form_for @course do |f|%>
   <%= f.input :title %>
   <%= f.input :category, collection: @category %>
   <%= f.input :description, as: :text %>
   <%= f.input :price_per_hour %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-custom" %>
   <% end %>
 </div>

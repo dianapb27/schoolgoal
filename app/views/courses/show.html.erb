@@ -35,14 +35,20 @@
             </div>
           </div>
         </div>
-        <%= link_to "Back to all courses", courses_path, class: "btn btn-custom color-white mt-4" %>
-        <% if policy(@course).destroy? %>
-        <%= link_to "Remove", course_path(@course),
-                  method: :delete,
-                  data: { confirm: "Are you sure you want to delete this course?" },
-                  class: "btn btn-custom color-white mt-4 ml-2"
-                %>
-        <% end %>
+        <div>
+          <%= link_to "Back to all courses", courses_path, class: "btn btn-custom color-white mt-4 mr-2
+          " %>
+          <% if policy(@course).edit? %>
+                <%= link_to 'Edit', edit_course_path(@course), class: 'mt-4 mr-2 btn btn-custom' %>
+                <% end %>
+          <% if policy(@course).destroy? %>
+          <%= link_to "Remove", course_path(@course),
+                    method: :delete,
+                    data: { confirm: "Are you sure you want to delete this course?" },
+                    class: "btn btn-custom color-white mt-4 "
+                  %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div class="col-4">
