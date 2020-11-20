@@ -7,6 +7,13 @@ $body-font: "Work Sans", "Helvetica", "sans-serif";
 $headers-font: "Nunito", "Helvetica", "sans-serif";
 $custom-font: 'Aleo', serif;
 
+.font-custom {
+  font-family: $custom-font;
+}
+
+.bold {
+  font-weight: 700;
+}
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {
