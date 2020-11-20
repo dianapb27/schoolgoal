@@ -18,7 +18,7 @@
 
   <div class="row">
     <% @courses.each do |course| %>
-    <div class="col-4 d-flex align-items-stretch">
+    <div class="col-6 col-md-4 d-flex align-items-stretch">
       <div class="course-card mb-4" style="background-image: min-height: 100%; min-width:
             100%; background-position: center; background-size: cover; box-shadow: 0px 0px 4px #ccc;">
         <% if course.cover_photo.attached? %>
@@ -31,18 +31,19 @@
         <div class="course-card-image" style=""></div>
         <div class="course-card-content pb-3 px-3">
           <div class="course-card-title">
-            <h4 style="margin-top: 8px"><%= course.title %> <%= course.category %> course</h4>
+            <h4 style="margin-top: 8px"><%= course.title %></h4>
+            <p class="lead py-2">Category: <%= course.category %></p>
+            <p class="p-card"><%= course.description %></p>
+            <%= link_to "", course_path(course), class: "" %>
           </div>
-          <p class="p-card"><%= course.description %></p>
-          <%= link_to "", course_path(course), class: "" %>
 
 
-          <div class="row pt-3 d-sm-flex flex-lg-row flex-sm-column-reverse">
+          <div class="row pt-3 d-sm-flex flex-lg-row">
           
             <div class="col-12 col-lg-4">
               $<%= course.price_per_hour %>
             </div>
-            <div class="col-12 col-lg-8 d-flex pb-sm-2 justify-content-between justify-content-lg-end">
+            <div class="col-12 col-lg-8 d-flex flex-sm-column flex-md-row pt-sm-2 justify-content-between justify-content-lg-end">
               <% if policy(course).edit? %>
               <%= link_to 'Edit', edit_course_path(course), class: 'pr-lg-5 text-warning' %>
               <% end %>

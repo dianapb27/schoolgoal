@@ -6,8 +6,13 @@
 
 .card-course {
   overflow: hidden;
-  
+
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.course-card-title {
+  min-height: 20vh;
+
 }
 
 .row-items {
