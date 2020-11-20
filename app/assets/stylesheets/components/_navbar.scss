@@ -4,6 +4,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  align-items: center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,4 +13,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.search-form {
+  border-radius: 30px;
 }
