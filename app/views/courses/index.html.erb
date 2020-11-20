@@ -39,11 +39,12 @@
 
 
           <div class="row pt-3 d-sm-flex flex-lg-row">
-          
+
             <div class="col-12 col-lg-4">
               $<%= course.price_per_hour %>
             </div>
-            <div class="col-12 col-lg-8 d-flex flex-sm-column flex-md-row pt-sm-2 pt-lg-0 justify-content-between justify-content-lg-end">
+            <div
+              class="col-12 col-lg-8 d-flex flex-sm-column flex-md-row pt-sm-2 pt-lg-0 justify-content-between justify-content-lg-end btn-index-card">
               <% if policy(course).edit? %>
               <%= link_to 'Edit', edit_course_path(course), class: 'mr-lg-1 btn btn-custom' %>
               <% end %>
@@ -61,7 +62,6 @@
                     <%= image_tag "user-profile-default.png", class: "card-course-user avatar-bordered" %>
                   <% end %> -->
 
-
           </div>
 
         </div>
@@ -71,3 +71,4 @@
   </div>
 </div>
 
+<!-- edited -->
