@@ -14,22 +14,28 @@
           <p class="course-show-address">Course Category: <%= @course.category %></p>
         </div>
         <div class="course-content">
-          <h3 class="mt-5">A bit more about this course...</h3>
-          <p ><%= @course.description %></p>
-          <h5 class="mt-4">Course taught by:</h5>
-          <ul class="list-inline">
-            <li class="list-inline-item">
-              <% if @course.teacher.profile_photo.attached? %>
-                <%= cl_image_tag @course.teacher.profile_photo.key, class: "avatar-bordered" %>
-              <% else %>
-                <%= image_tag "user-profile-default.png", class: "avatar-bordered" %>
-              <% end %>
-            </li>
-          <li class="list-inline-item"><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></li>
-          </ul>
-          <h5 class="mt-4">Price per hour: $<%= @course.price_per_hour %></h5>
+          <div class="row">
+            <div class="col-7 course-details">
+              <h3 class="mt-3">A bit more about this course...</h3>
+              <p><%= @course.description %></p>
+            </div>
+            <div class="col-4 offset-1 course-details">
+              <h5 class="mt-3">Course taught by:</h5>
+              <ul class="list-inline">
+                <li class="list-inline-item">
+                  <% if @course.teacher.profile_photo.attached? %>
+                    <%= cl_image_tag @course.teacher.profile_photo.key, class: "avatar-bordered" %>
+                  <% else %>
+                    <%= image_tag "user-profile-default.png", class: "avatar-bordered" %>
+                  <% end %>
+                </li>
+              <li class="list-inline-item"><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></li>
+              </ul>
+              <h5 class="mt-4">Price per hour: $<%= @course.price_per_hour %></h5>
+            </div>
+          </div>
         </div>
-        <%= link_to "Back to all courses", courses_path, class: "btn btn-success mt-5" %>
+        <%= link_to "Back to all courses", courses_path, class: "btn btn-success mt-3" %>
       </div>
     </div>
     <div class="col-4">
