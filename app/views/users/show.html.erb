@@ -20,10 +20,17 @@
             <div class="cards">
               <% @user.owned_courses.each do |owned_course| %>
                 <%= link_to course_path(owned_course), class: "link-to-course" do %>
-                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path owned_course.cover_photo.key %>')">
-                  <%= owned_course.title %>
-                  <p class="course-category"><%= owned_course.category %></p>
-                </div>
+                  <% if owned_course.cover_photo.attached? %>
+                    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path owned_course.cover_photo.key %>')">
+                      <%= owned_course.title %>
+                      <p class="course-category"><%= owned_course.category %></p>
+                    </div>
+                  <% else %>
+                    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1104&q=80)">
+                      <%= owned_course.title %>
+                      <p class="course-category"><%= owned_course.category %></p>
+                    </div>
+                  <% end %>
                 <% end %>
               <% end %>
             </div>
@@ -35,25 +42,31 @@
       <div class="row">
         <div class="col-12">
           <% if not @user.owned_courses.empty? %>
-            <% @user.owned_courses.each do |owned_course| %>
-              <% if not owned_course.appointments.empty? %>
-                <h3 class="profile-header">My Upcoming Teaching Sessions</h3>
-                <div class="card-product">
-                  <%= cl_image_tag owned_course.cover_photo.key %>
-                  <div class="card-product-infos">
-                    <h3><%= owned_course.title %></h3>
-                    <h6><%= owned_course.category %></h4>
-                    <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
-                      <p>
-                        <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
-                        <strong>On:</strong> <%= tsession.start_time %>
-                      </p>
+            <% if not @empty %>
+              <h3 class="profile-header">My Upcoming Teaching Sessions</h3>
+              <% @user.owned_courses.each do |owned_course| %>
+                <% if not owned_course.appointments.empty? %>
+                  <div class="card-product">
+                    <% if owned_course.cover_photo.attached? %>
+                      <%= cl_image_tag owned_course.cover_photo.key %>
+                    <% else %>
+                      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1104&q=80" alt="course">
                     <% end %>
+                    <div class="card-product-infos">
+                      <h3><%= owned_course.title %></h3>
+                      <h6><%= owned_course.category %></h4>
+                      <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
+                        <p>
+                          <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
+                          <strong>On:</strong> <%= tsession.start_time %>
+                        </p>
+                      <% end %>
+                    </div>
                   </div>
-                </div>
-              <% else %>
-                <h3 class="profile-header">You don't have any upcoming teaching sessions</h3>
+                <% end %>
               <% end %>
+            <% else %>
+              <h3 class="profile-header">You don't have any upcoming teaching sessions</h3>
             <% end %>
           <% end %>
         </div>

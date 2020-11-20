@@ -2,13 +2,11 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [ :index, :show ]
   def index
-
     if params[:query].present?
       @courses = Course.search_by_title_and_description_and_category(params[:query])
-   else
-     @courses = Course.all
-   end
-   
+    else
+      @courses = Course.all.reverse
+    end
   end
 
   def show
