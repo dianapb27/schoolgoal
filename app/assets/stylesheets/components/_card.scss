@@ -4,6 +4,10 @@
   object-fit: cover;
 }
 
+.featured-card {
+  box-shadow: 0px 0px 4px #ccc;
+}
+
 .card-course {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
