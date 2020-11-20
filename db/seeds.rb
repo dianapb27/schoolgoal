@@ -60,7 +60,7 @@ User.create!([{
     {
       teacher: User.second,
       title: "Martha's Literature Course",
-      description: "Learn middle school Literaure online with Martha!",
+      description: "Learn middle school Literature online with Martha!",
       category: "English",
       price_per_hour: rand(5..30)
     },
@@ -75,13 +75,13 @@ User.create!([{
       teacher: User.fourth,
       title:  "Michael's Music Course",
       description: "For students of all ages who want to learn how to read music notes and apply that knowledge to using their instruments.",
-      category: "Science",
+      category: "Music",
       price_per_hour: rand(5..30)
     },
     {
       teacher: User.fifth,
       title:  "Sarah's Chemistry Course",
-      description: "Want to know more about the molecues that make up this world? Let me teach you!",
+      description: "Want to know more about the molecules that make up this world? Let me teach you!",
       category: "Science",
       price_per_hour: rand(5..30)
     },
@@ -96,7 +96,7 @@ User.create!([{
       teacher: User.first,
       title:  "Mark's Arabic Course",
       description: "Want to learn Arabic? Let me teach you.",
-      category: "Japanese",
+      category: "Arabic",
       price_per_hour: rand(5..30)
     },
     {
@@ -110,14 +110,14 @@ User.create!([{
       teacher: User.first,
       title:  "Joseph's Pottery Course",
       description: "Pottery is my passion and I want to make it yours too.",
-      category: "Japanese",
+      category: "Art",
       price_per_hour: rand(5..30)
     },
     {
       teacher: User.last,
       title:  "Daniel's Philosophy Course",
       description: "Learn what the meaning of life is with this course.",
-      category: "Science",
+      category: "Art",
       price_per_hour: rand(5..30)
     }])
 
