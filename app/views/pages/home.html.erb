@@ -15,8 +15,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 mx-auto text-center">
-        <h3 class="heading-black">schoolgoal is an equitable and accessible solution to at home learning</h3>
-        <p class="text-muted lead">You can now access the best teachers from around the world from your cell phone or computer</p>
+        <h3 class="bold pb-2 color-custom">Why Schoolgoal?</h3>
+        <p class="text-muted lead">You can now access the best teachers from around the world from your cell phone or
+          computer</p>
       </div>
     </div>
     <div class="row mt-5">
@@ -38,7 +39,7 @@
                 <span data-feather="monitor" width="35" height="35"></span>
               </div>
             </div>
-            <h5><strong>Pesonalize your experience</strong></h5>
+            <h5><strong>Personalize your experience</strong></h5>
             <p class="text-muted lead">Communicate your teaching style and needs with comprehensive and culturally
               responsive feedback</p>
           </div>
@@ -58,14 +59,66 @@
               </div>
             </div>
             <h5><strong>Be your own boss</strong></h5>
-            <p class="text-muted lead">Create your own schedule and utilize your own pedagogical style with feedback from
-              students.</p>
+            <p class="text-muted lead">Create your own schedule and utilize your own pedagogical style with feedback
+              from
+              students</p>
           </div>
         </div>
       </div>
     </div>
     <div class="row mt-6">
       <div class="col-md-6 mr-auto">
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="container pt-2">
+
+  <h2 class="text-center font-custom pb-4">Explore Featured Courses</h2>
+
+  <div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+      <div class="card h-100 featured-card border-0 rounded">
+        <img
+          src="https://images.unsplash.com/photo-1518152006812-edab29b069ac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @courses[0].title %></h5>
+          <p class="card-text"><%= @courses[0].description %></p>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Check out more", course_path(@courses[0]), class: "btn btn-custom btn-lg btn-block" %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col mb-4">
+      <div class="card h-100 featured-card border-0 rounded">
+        <img
+          src="https://images.unsplash.com/photo-1499332347742-4946bddc7d94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=633&q=80"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @courses[1].title %></h5>
+          <p class="card-text"><%= @courses[1].description %></p>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Check out more", course_path(@courses[1]), class: "btn btn-custom btn-lg btn-block" %>
+        </div>
+      </div>
+    </div>
+    <div class="col mb-4">
+      <div class="card h-100 featured-card border-0 rounded">
+        <img
+          src="https://images.unsplash.com/photo-1553695142-4bb5259028e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
+          class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= @courses[2].title %></h5>
+          <p class="card-text"><%= @courses[2].description %></p>
+        </div>
+        <div class="card-footer">
+          <%= link_to "Check out more", course_path(@courses[2]), class: "btn btn-custom btn-lg btn-block" %>
+        </div>
       </div>
     </div>
   </div>
