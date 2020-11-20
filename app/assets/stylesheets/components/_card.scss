@@ -2,6 +2,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
 }
 
 .card-course > img {
@@ -23,6 +24,12 @@
 
 
 .card-course .card-course-infos {
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
   padding: 16px;
   display: flex;
   justify-content: space-between;

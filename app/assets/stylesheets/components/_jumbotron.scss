@@ -1,3 +1,7 @@
+$green: #2ecc71;
+$blue: #3498db;
+$turquoise: #1abc9c;
+
 .jumbotron {
   background-image:
   linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -8,3 +12,42 @@
   color: white;
   font-weight: bolder;
 }
+
+  .btn {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 3px solid $white;
+  border-radius: 0.3em;
+  color: $white;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 20px;
+  padding: 1em 1.6em;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 550;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+.btn-one {
+ transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  &:hover {
+    box-shadow: 0 0 40px 40px $blue inset;
+    border: 0px;
+  }
+}
+
+
+
+
+
