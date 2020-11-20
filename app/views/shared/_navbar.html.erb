@@ -1,6 +1,6 @@
 
 <div class="navbar navbar-expand-sm bg-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand color-custom pb-0 mb-0 pl-5 ml-5" do %>
+  <%= link_to "/", class: "navbar-brand color-custom pb-0 mb-0 ml-4" do %>
 
   <%= image_tag "wave.png" %>
   <p class="d-inline">
@@ -22,7 +22,7 @@
         %>
     <!-- <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0" %> -->
     <% end %>
-    <ul class="navbar-nav mr-auto pr-5">
+    <ul class="navbar-nav mr-auto pr-4">
       <% if user_signed_in? %>
       <li class="nav-item">
         <% if policy(Course).create? %>
