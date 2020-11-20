@@ -1,13 +1,9 @@
-
 <div class="navbar navbar-expand-sm bg-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand color-custom pb-0 mb-0 ml-4" do %>
-
-  <%= image_tag "wave.png" %>
-  <p class="d-inline">
-    schoolgoal
-  </p>
-
-
+  <%= link_to "/", class: "navbar-brand color-custom pb-0 mb-0 ml-3" do %>
+    <%= image_tag "wave.png" %>
+    <p class="d-inline">
+      schoolgoal
+    </p>
   <% end %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,14 +34,15 @@
         <% else %>
         <%= image_tag "user-profile-default.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropdown-menu-right rounded" aria-labelledby="navbarDropdown">
+          <h6 class="border-bottom pl-3 py-1">Hi <strong><%= current_user.first_name %></strong>! 😄</h6>
           <%= link_to "My Profile", user_path(current_user), class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
       <% else %>
       <li class="nav-item">
-        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        <%= link_to "Login", new_user_session_path, class: "nav-link color-custom" %>
       </li>
       <% end %>
     </ul>
