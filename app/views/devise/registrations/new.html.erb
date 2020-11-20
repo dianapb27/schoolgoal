@@ -1,7 +1,9 @@
 <div class="container sign-in p-3 px-5">
 
-  <h2>Sign up</h2>
-  
+  <h1 class="text-center font-custom bold color-custom">schoolgoal</h1>
+  <hr>
+
+  <p class="text-center font-custom">To continue signup to schoolgoal</p>
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= f.error_notification %>
   
@@ -27,7 +29,7 @@
     </div>
   
     <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-custom btn-large btn-block btn-sign-in" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-custom btn-signin btn-large btn-block" %>
     </div>
   <% end %>
   
