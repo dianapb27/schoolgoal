@@ -18,23 +18,31 @@
 
   <div class="row">
     <% @courses.each do |course| %>
-    <div class="col-6 col-md-4 d-flex align-items-stretch">
-      <div class="course-card mb-4" style="background-image: min-height: 100%; min-width:
-            100%; background-position: center; background-size: cover; box-shadow: 0px 0px 4px #ccc;">
-        <% if course.cover_photo.attached? %>
-        <%= cl_image_tag course.cover_photo.key, class: "card-img-top" %>
-        <% else %>
-        <img class="card-img-top"
-          src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1532&q=80"
-          alt="">
-        <% end %>
-        <div class="course-card-image" style=""></div>
-        <div class="course-card-content pb-3 px-3">
-          <div class="course-card-title">
-            <h4 style="margin-top: 8px"><%= course.title %></h4>
-            <p class="lead py-2">Category: <%= course.category %></p>
-            <p class="p-card"><%= course.description %></p>
-            <%= link_to "", course_path(course), class: "stretched-link" %>
+      <div class="col-4">
+        <div class="course-card" style="background-image: min-height: 100%; min-width:
+          100%; background-position: center; background-size: cover; box-shadow: 0px 0px 4px #ccc;">
+            <% if course.cover_photo.attached? %>
+              <%= cl_image_tag course.cover_photo.key, class: "card-img-top" %>
+            <% else %>
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1532&q=80" alt="">
+            <% end %>
+          <div class="course-card-image" style=""></div>
+          <div class="course-card-content">
+            <div class="course-card-title">
+              <h4 style="margin-top: 8px"><%= course.title %></h4>
+            </div>
+            <p style="height: 10vh;"><%= course.description %></p>
+            <%= link_to "Check out this course", course_path(course) %>
+            <div class="flex">
+              <div class="flex">
+                <h2 class="card-course-pricing">$<%= course.price_per_hour %></h2>
+                <% if course.teacher.profile_photo.attached? %>
+                  <%= cl_image_tag course.teacher.profile_photo.key, class: "card-course-user avatar-bordered" %>
+                <% else %>
+                  <%= image_tag "user-profile-default.png", class: "card-course-user avatar-bordered" %>
+                <% end %>
+              </div>
+            </div>
           </div>
 
 
