@@ -20,18 +20,6 @@ Course.destroy_all
 
 puts "Creating seeds..."
 User.create!([{
-    first_name:"Bob",
-    last_name: "Robinson",
-    email: 'brob@gmail.com',
-    password: Faker::String.random(length: 10)
-  },
-  {
-    first_name: "Alex",
-    last_name: "Jones",
-    email: 'ajones@gmail.com',
-    password: Faker::String.random(length: 10)
-  },
-  {
     first_name: "Colby",
     last_name: "Morales",
     email: 'cmorales@gmail.com',
@@ -44,78 +32,90 @@ User.create!([{
     password: Faker::String.random(length: 10)
   },
   {
-    first_name: "Mike",
-    last_name: "Pearson",
-    email: 'mpearson@gmail.com',
+    first_name: "Josh",
+    last_name: "Goulart",
+    email: 'jgoulart@gmail.com',
+    password: Faker::String.random(length: 10)
+  },
+  {
+    first_name: "Diana",
+    last_name: "Davis",
+    email: 'ddavis@gmail.com',
+    password: Faker::String.random(length: 10)
+  },
+  {
+    first_name: "Marcus",
+    last_name: "Woods",
+    email: 'vwoods@gmail.com',
     password: Faker::String.random(length: 10)
   }])
 
   Course.create!([{
       teacher: User.first,
-      title: "John's Biochemistry Course",
-      description: "John has been teaching Biochemistry for 6 years and loves to help college students learn the subject.",
+      title: "Biochemistry Course",
+      description: "I have been teaching Biochemistry for 6 years and I love to help college students learn the subject.",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
-      title: "Martha's Literature Course",
-      description: "Learn middle school Literaure online with Martha!",
+      teacher: User.second,
+      title: "Literature Course",
+      description: "Learn middle school Literaure online!",
       category: "English",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
-      title: "Pablo's Public Health Course",
+      teacher: User.third,
+      title: "Public Health Course",
       description: "For college students who need a little help succeeding in their public health courses.",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.last,
-      title:  "Michael's Music Course",
+      teacher: User.fourth,
+      title:  "Music Course",
       description: "For students of all ages who want to learn how to read music notes and apply that knowledge to using their instruments.",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
-      title:  "Sarah's Chemistry Course",
+      teacher: User.fifth,
+      title:  "Chemistry Course",
       description: "Want to know more about the molecues that make up this world? Let me teach you!",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
       teacher: User.first,
-      title:  "Emily's Japanese Course",
+      title:  "Japanese Course",
       description: "Learn Japanse from someone who was born and raised in Japan.",
       category: "Japanese",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
-      title:  "Mark's Arabic Course",
+      teacher: User.second,
+      title:  "Arabic Course",
       description: "Want to learn Arabic? Let me teach you.",
       category: "Japanese",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.last,
-      title:  "Brunos's German Course",
+      teacher: User.third,
+      title:  "German Course",
       description: "Guten Tag! Learn German with me.",
       category: "German",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
-      title:  "Joseph's Pottery Course",
+      teacher: User.fourth,
+      title:  "Pottery Course",
       description: "Pottery is my passion and I want to make it yours too.",
-      category: "Japanese",
+      category: "Art",
       price_per_hour: rand(5..30)
     },
     {
       teacher: User.last,
-      title:  "Daniel's Philosophy Course",
+      title:  "Philosophy Course",
       description: "Learn what the meaning of life is with this course.",
       category: "Science",
       price_per_hour: rand(5..30)
