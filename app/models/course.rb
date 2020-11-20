@@ -1,7 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :teacher, class_name: "User"
   has_one_attached :cover_photo
-  has_many :appointments
+  has_many :appointments, dependent: :destroy
   validates :title, :description, :category, :price_per_hour, presence: true
   include PgSearch::Model
 
