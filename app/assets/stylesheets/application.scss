@@ -10,5 +10,9 @@
 
 // Your CSS partials
 @import "components/index";
-@import "components/jumbotron";
 @import "pages/index";
+
+body {
+  font-family: $custom-font;
+  font-weight: 700;
+}

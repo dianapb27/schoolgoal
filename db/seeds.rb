@@ -52,34 +52,34 @@ User.create!([{
 
   Course.create!([{
       teacher: User.first,
-      title: "John's Biochemistry Course",
+      title: "#{User.first.first_name} John's Biochemistry Course",
       description: "John has been teaching Biochemistry for 6 years and loves to help college students learn the subject.",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
+      teacher: User.second,
       title: "Martha's Literature Course",
       description: "Learn middle school Literature online with Martha!",
       category: "English",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
+      teacher: User.third,
       title: "Pablo's Public Health Course",
       description: "For college students who need a little help succeeding in their public health courses.",
       category: "Science",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.last,
+      teacher: User.fourth,
       title:  "Michael's Music Course",
       description: "For students of all ages who want to learn how to read music notes and apply that knowledge to using their instruments.",
       category: "Music",
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.first,
+      teacher: User.fifth,
       title:  "Sarah's Chemistry Course",
       description: "Want to know more about the molecules that make up this world? Let me teach you!",
       category: "Science",
@@ -100,7 +100,7 @@ User.create!([{
       price_per_hour: rand(5..30)
     },
     {
-      teacher: User.last,
+      teacher: User.first,
       title:  "Brunos's German Course",
       description: "Guten Tag! Learn German with me.",
       category: "German",
