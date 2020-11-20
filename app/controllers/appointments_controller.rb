@@ -18,6 +18,15 @@ class AppointmentsController < ApplicationController
       redirect_to @course
     end
   end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @user = current_user
+    if @appointment.destroy
+      flash[:alert] = "You have cancelled this appointment ❌"
+      redirect_to @user
+    end
+  end
   
   private
 

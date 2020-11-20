@@ -1,28 +1,30 @@
 <div class="container">
   <div class="row">
     <div class="col-3">
-      <h2 class="text-center">My Profile</h2>
+      <h3 class="text-center profile-header">My Profile</h3>
       <div class="profile">
         <% if @user.profile_photo.attached?  %>
           <%= cl_image_tag @user.profile_photo.key, class: "profile-pic" %>
         <% else %>
           <%= image_tag "user-profile-default.png", class: "profile-pic" %>
         <% end %>
-        <h2><%= @user.first_name %> <%= @user.last_name %></h2>
-        <h6>Email: <%= @user.email %></h6>
+        <h3 class="profile-header"><%= @user.first_name %> <%= @user.last_name %></h3>
+        <h6><i class="fas fa-envelope-square"></i> <%= @user.email %></h6>
       </div>
     </div>
     <div class="col-9 upcoming-appointments">
       <div class="row">
         <div class="col-12">
           <% if not @user.owned_courses.empty? %>
-            <h2>My Published Courses</h2>
+            <h3 class="profile-header">My Published Courses</h3>
             <div class="cards">
               <% @user.owned_courses.each do |owned_course| %>
+                <%= link_to course_path(owned_course), class: "link-to-course" do %>
                 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path owned_course.cover_photo.key %>')">
                   <%= owned_course.title %>
                   <p class="course-category"><%= owned_course.category %></p>
                 </div>
+                <% end %>
               <% end %>
             </div>
           <% else %>
@@ -33,21 +35,25 @@
       <div class="row">
         <div class="col-12">
           <% if not @user.owned_courses.empty? %>
-            <h2>My Upcoming Teaching Sessions</h2>
             <% @user.owned_courses.each do |owned_course| %>
-              <div class="card-product">
-                <%= cl_image_tag owned_course.cover_photo.key %>
-                <div class="card-product-infos">
-                  <h2><%= owned_course.title %></h2>
-                  <h6><%= owned_course.category %></h4>
-                  <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
-                    <p>
-                      <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
-                      <strong>On:</strong> <%= tsession.start_time %>
-                    </p>
-                  <% end %>
+              <% if not owned_course.appointments.empty? %>
+                <h3 class="profile-header">My Upcoming Teaching Sessions</h3>
+                <div class="card-product">
+                  <%= cl_image_tag owned_course.cover_photo.key %>
+                  <div class="card-product-infos">
+                    <h3><%= owned_course.title %></h3>
+                    <h6><%= owned_course.category %></h4>
+                    <% owned_course.appointments.order(start_time: :asc).each do |tsession| %>
+                      <p>
+                        <strong>Student:</strong> <%= tsession.student.first_name %> <%= tsession.student.last_name %>. 
+                        <strong>On:</strong> <%= tsession.start_time %>
+                      </p>
+                    <% end %>
+                  </div>
                 </div>
-              </div>
+              <% else %>
+                <h3 class="profile-header">You don't have any upcoming teaching sessions</h3>
+              <% end %>
             <% end %>
           <% end %>
         </div>
@@ -55,12 +61,17 @@
       <div class="row">
         <div class="col-12">
           <% if not @user.appointments.empty? %>
-            <h2>My Upcoming Studying Sessions</h2>
+            <h3 class="profile-header">My Upcoming Study Sessions</h3>
             <% @user.appointments.order(start_time: :asc).each do |appointment| %>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item">
-                  <strong>Course:</strong> <%= appointment.course.title %> - <%= appointment.course.category %>. 
+                <li class="list-group-item appointment-list">
+                  <%= appointment.course.title %> - <%= appointment.course.category %> <%= link_to "❌", appointment_path(appointment),
+                    method: :delete,
+                    data: { confirm: "Are you sure you want to delete this appointment?" }
+                  %>
+                  <br>
                   <strong>Teacher:</strong> <%= appointment.course.teacher.first_name %> <%= appointment.course.teacher.last_name %>
+                  <br>
                   <strong>On:</strong> <%= appointment.start_time %>
                 </li>
               </ul>
