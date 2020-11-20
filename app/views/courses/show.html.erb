@@ -53,7 +53,7 @@
           <%= f.input :start_time, as: :date, html5: true %>
           <%= f.input :end_time, as: :date, html5: true %>
           <% if current_user != @course.teacher %>
-          <%= f.submit "Book", class: "btn btn-outline-success btn-block" %>
+          <%= f.submit "Book", class: "btn btn-custom color-white btn-block" %>
           <% end %>
           <% end %>
         </div>
