@@ -1,15 +1,35 @@
-<div class="container mt-4 px-5">
+<div>
   <% if @course.cover_photo.attached? %>
-    <%= cl_image_tag @course.cover_photo.key %>
+    <%= cl_image_tag @course.cover_photo.key, class: "cover-photo" %>
+  <% else %>
+    <%= image_tag "classroom.jpg", class: "cover-photo" %>
   <% end %>
+</div>
+<div class="container mt-4">
   <div class="row">
     <div class="col-8 d-flex flex-column align-items-center">
       <div class="course-show-card">
-        <h1>Welcome to <%= @course.title %> <%= @course.category %> class!</h1>
-        <p class="course-show-address">Course Category: <%= @course.category %></p>
-        <h3>A bit more about this course...</h3>
-        <p><%= @course.description %></p>
-        <%= link_to "Go Back", courses_path, class: "btn btn-primary" %>
+        <div class="course-intro">
+          <h1>Welcome to <%= @course.title %>!</h1>
+          <p class="course-show-address">Course Category: <%= @course.category %></p>
+        </div>
+        <div class="course-content">
+          <h3 class="mt-5">A bit more about this course...</h3>
+          <p ><%= @course.description %></p>
+          <h5 class="mt-4">Course taught by:</h5>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <% if @course.teacher.profile_photo.attached? %>
+                <%= cl_image_tag @course.teacher.profile_photo.key, class: "avatar-bordered" %>
+              <% else %>
+                <%= image_tag "user-profile-default.png", class: "avatar-bordered" %>
+              <% end %>
+            </li>
+          <li class="list-inline-item"><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></li>
+          </ul>
+          <h5 class="mt-4">Price per hour: $<%= @course.price_per_hour %></h5>
+        </div>
+        <%= link_to "Back to all courses", courses_path, class: "btn btn-success mt-5" %>
       </div>
     </div>
     <div class="col-4">
@@ -24,11 +44,6 @@
             <% end %>
           <% end %>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><i class="material-icons mr-2">Teacher:</i><span><%= @course.teacher.first_name %> <%= @course.teacher.last_name %></span></li>
-          <li class="list-group-item"><i class="material-icons mr-2">Price per hour</i> $<%= @course.price_per_hour %>
-          </li>
-        </ul>
       </div>
     </div>
   </div>
